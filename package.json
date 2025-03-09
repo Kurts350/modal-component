@@ -1,0 +1,38 @@
+{
+  "name": "kurts350-modal-component",
+  "version": "1.0.0",
+  "description": "Composant React converti depuis un plugin jQuery pour HRnet",
+  "main": "dist/index.js",
+  "files": ["dist"],
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": ["react", "component", "hrnet", "modal", "dialog"],
+  "author": "Niakate Biaguy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kurts350/modal-component.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kurts350/modal-component/issues"
+  },
+  "homepage": "https://github.com/Kurts350/modal-component#readme",
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
+    "styled-components": "^5.0.0 || ^6.0.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.8.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.21.0",
+    "@babel/preset-react": "^7.18.6",
+    "babel-plugin-styled-components": "^2.0.7"
+  }
+}
