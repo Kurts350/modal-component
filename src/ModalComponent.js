@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import './ModalComponent.css';
 
 // Composants stylisés
 const ModalOverlay = styled.div`
@@ -15,12 +14,8 @@ const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  opacity: 0;
+  opacity: ${props => props.$isVisible ? 1 : 0};
   transition: opacity ${props => props.$fadeDuration/1000}s ease;
-  
-  &.modal-visible {
-    opacity: 1;
-  }
 `;
 
 const ModalContent = styled.div`
@@ -32,13 +27,9 @@ const ModalContent = styled.div`
   width: 90%;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transform: translateY(-20px);
+  transform: ${props => props.$isVisible ? 'translateY(0)' : 'translateY(-20px)'};
+  opacity: ${props => props.$isVisible ? 1 : 0};
   transition: opacity ${props => props.$fadeDuration/1000}s ease, transform ${props => props.$fadeDuration/1000}s ease;
-  
-  &.modal-visible {
-    transform: translateY(0);
-    opacity: 1;
-  }
 `;
 
 const ModalButton = styled.button`
@@ -73,8 +64,8 @@ const Modal = React.memo(({
   fadeDuration = 300
 }) => {
   const [isVisible, setIsVisible] = React.useState(false);
+  const [isAnimating, setIsAnimating] = React.useState(false);
   const overlayRef = React.useRef(null);
-  const contentRef = React.useRef(null);
   
   // Effet pour gérer l'animation d'ouverture/fermeture
   React.useEffect(() => {
@@ -84,19 +75,13 @@ const Modal = React.memo(({
       
       // Ajouter la classe après un court délai pour l'animation
       const timer = setTimeout(() => {
-        if (overlayRef.current && contentRef.current) {
-          overlayRef.current.classList.add('modal-visible');
-          contentRef.current.classList.add('modal-visible');
-        }
+        setIsAnimating(true);
       }, 10);
       
       return () => clearTimeout(timer);
     } else {
       // Retirer la classe pour démarrer l'animation de fermeture
-      if (overlayRef.current && contentRef.current) {
-        overlayRef.current.classList.remove('modal-visible');
-        contentRef.current.classList.remove('modal-visible');
-      }
+      setIsAnimating(false);
       
       // Attendre la fin de l'animation avant de masquer complètement
       const timer = setTimeout(() => {
@@ -142,12 +127,13 @@ const Modal = React.memo(({
       aria-modal="true" 
       aria-labelledby="modal-title"
       $fadeDuration={fadeDuration}
+      $isVisible={isAnimating}
     >
       <ModalContent 
-        ref={contentRef}
         className={className}
         $maxWidth={maxWidth}
         $fadeDuration={fadeDuration}
+        $isVisible={isAnimating}
       >
         {title && <h2 id="modal-title">{title}</h2>}
         {children}
