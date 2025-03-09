@@ -1,15 +1,15 @@
 {
   "name": "kurts350-modal-component",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Composant React converti depuis un plugin jQuery pour HRnet",
   "main": "dist/index.js",
   "files": [
     "dist"
   ],
-"scripts": {
-  "build": "babel src --out-dir dist && sed -i '' '/require.*ModalComponent.css/d' dist/ModalComponent.js",
-  "prepublishOnly": "npm run build"
-},
+  "scripts": {
+    "build": "babel src --out-dir dist && sed -i '' '/require.*ModalComponent.css/d' dist/ModalComponent.js",
+    "prepublishOnly": "npm run build"
+  },
   "keywords": [
     "react",
     "component",
