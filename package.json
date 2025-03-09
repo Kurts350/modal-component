@@ -1,6 +1,6 @@
 {
   "name": "kurts350-modal-component",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Composant React converti depuis un plugin jQuery pour HRnet",
   "main": "dist/index.js",
   "files": [
