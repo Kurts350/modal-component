@@ -1,14 +1,22 @@
 {
   "name": "kurts350-modal-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Composant React converti depuis un plugin jQuery pour HRnet",
   "main": "dist/index.js",
-  "files": ["dist"],
-"scripts": {
-  "build": "babel src --out-dir dist --copy-files",
-  "prepublishOnly": "npm run build"
-},
-  "keywords": ["react", "component", "hrnet", "modal", "dialog"],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir dist --copy-files",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "hrnet",
+    "modal",
+    "dialog"
+  ],
   "author": "Niakate Biaguy",
   "license": "MIT",
   "repository": {
