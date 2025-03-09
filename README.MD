@@ -1,6 +1,6 @@
 # Modal-component
 
-Un composant Modal React moderne, léger et élégant, converti depuis un plugin jQuery. Ce composant a été spécialement conçu pour le projet HRnet afin d'améliorer les performances et la stabilité de l'application.
+Un composant Modal React moderne, léger et élégant, converti depuis un plugin jQuery. Ce composant a été spécialement conçu pour le projet HRnet afin d'améliorer les performances et la stabilité de l'application. Voici le lien du plugin d'origine : https://github.com/kylefox/jquery-modal
 
 ## Installation
 
